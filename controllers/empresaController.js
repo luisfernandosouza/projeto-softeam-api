@@ -1,55 +1,56 @@
-const Empresa = require('./../models/empresaModel') 
+const Empresa = require('./../models/empresaModel');
+const catchAsync = require('./../utils/catchAsync');
 
-exports.getAllColaborador = catchAsync( async (req, res, next) => {
-    const colaboradores = await Colaborador.find();
+exports.getAllEmpresas = catchAsync( async (req, res, next) => {
+    const empresas = await Empresa.find();
+
     res.status(200).json({
         status:'success',
         data:{
-            colaboradores
+            empresas
         }
     });
 });
 
-exports.getColaborador = catchAsync( async (req, res, next) => {
-    const colaborador = await Colaborador.findById(req.params.id);
+exports.getEmpresa = catchAsync( async (req, res, next) => {
+    const empresa = await Empresa.findById(req.params.id);
     res.status(200).json({
         message: 'success',
         data:{
-            colaborador
+            empresa
         }
     });
 });
 
-exports.createColaborador = catchAsync(async (req, res, next) => {
-    const colaborador = await Colaborador.create(req.body);
+exports.createEmpresa = catchAsync(async (req, res, next) => {
+    const empresa = await Empresa.create(req.body);
     res.status(200).json({
         status:'success',
         data: {
-            colaborador
+            empresa
         }
     });
 });
 
-exports.updateColaborador = catchAsync(async (req, res, next) => {
-    // const colaborador = await Colaborador.findByIdAndUpdate(req.params.id, req.body, {new:true, runValidators:true})
+exports.updateEmpresa = catchAsync(async (req, res, next) => {
 
-    const colaborador = await Colaborador.findByIdAndUpdate(req.params.id, req.body, {new:true, runValidators:true});
-
+    const empresa = await Empresa.findByIdAndUpdate(req.params.id, req.body, {new:true, runValidators:true});
 
     res.status(200).json({
         message: 'success',
         data:{
-            colaborador
+            empresa
         }
     });
 })
 
-exports.deleteColaborador = catchAsync(async (req, res, next) => {
-    const colaborador = await Colaborador.findByIdAndDelete(req.params.id);
+exports.deleteEmpresa = catchAsync(async (req, res, next) => {
+    const empresa = await Empresa.findByIdAndDelete(req.params.id);
+
     res.status(200).json({
         message: 'success',
         data:{
-            colaborador
+            empresa
         }
     });
 })

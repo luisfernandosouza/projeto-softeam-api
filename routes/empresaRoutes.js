@@ -1,17 +1,20 @@
-const {Router} = require('express');
+const empresaController = require('./../controllers/empresaController');
+const express = require('express');
+const Router = express.Router()
 
 
 const route = Router();
 
+
 route
     .route('/')
-    .get(colaboradorController.getAllColaborador)
-    .post(colaboradorController.createColaborador);
+    .get(empresaController.getAllEmpresas)
+    .post(empresaController.createEmpresa);
 
 route
     .route('/:id')
-    .get(colaboradorController.getColaborador)
-    .patch(colaboradorController.updateColaborador)
-    .delete(colaboradorController.deleteColaborador);
+    .get(empresaController.getEmpresa)
+    .patch(empresaController.updateEmpresa)
+    .delete(empresaController.deleteEmpresa);
 
 module.exports = route

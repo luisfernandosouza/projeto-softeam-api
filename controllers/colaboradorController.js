@@ -2,7 +2,7 @@ const Colaborador = require('./../models/colaboradorModel');
 const catchAsync = require('./../utils/catchAsync');
 const bcrypt = require('bcrypt')
 
-exports.getAllColaborador = catchAsync( async (req, res, next) => {
+exports.getAllColaboradores = catchAsync( async (req, res, next) => {
     const colaboradores = await Colaborador.find();
     res.status(200).json({
         status:'success',
