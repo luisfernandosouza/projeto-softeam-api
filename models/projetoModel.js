@@ -4,6 +4,7 @@ const { Schema, model } = mongoose;
 const projetoSchema = new Schema({
     nome: {
         type: String,
+        lowercase: true,
         required: true
     },
     decricrao: {
@@ -12,6 +13,7 @@ const projetoSchema = new Schema({
     },
     status: {
         type: String,
+        lowercase: true,
         enum: ['prospectado', 'producao', 'finalizado'],
         required: true
     },

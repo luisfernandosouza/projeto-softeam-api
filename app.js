@@ -15,4 +15,4 @@ app.use('/api/v1/empresa', empresaRoutes);
 
 app.use(globalErrorHandle.errorHandle);
 
-module.exports = app;
+module.exports = app

@@ -4,7 +4,8 @@ const { Schema, model} = mongoose;
 const empresaSchema = Schema({
     nome: {
         type: String,
-        required: true
+        required: true,
+        lowercase: true
     },
     endereco: {
         type: String,

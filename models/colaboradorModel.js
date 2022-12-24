@@ -5,6 +5,7 @@ const validator = require('validator');
 const colaboradorSchema = Schema({
     nome: {
         type: String,
+        lowercase: true,
         required: true
     },
     email: {
@@ -21,7 +22,9 @@ const colaboradorSchema = Schema({
     },
     funcao: {
         type: String,
-        enum: ['Front-End', 'Back-end', 'Direção', 'Gente & Gestão', 'outros']
+        lowercase: true,
+        enum: ['front-End', 'back-end', 'direção', 'gente e gestão', 'outros'],
+
     }
 });
 
