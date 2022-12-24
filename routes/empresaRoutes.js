@@ -1,9 +1,8 @@
-const empresaController = require('./../controllers/empresaController');
+const empresaController = require('./../controllers/empresaController.js');
 const express = require('express');
-const Router = express.Router()
+const route = express.Router();
 
 
-const route = Router();
 
 
 route
