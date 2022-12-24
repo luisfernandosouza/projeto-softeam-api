@@ -17,7 +17,7 @@ route
 
 route
     .route('/')
-    .get(colaboradorController.getAllColaborador)
+    .get(colaboradorController.getAllColaboradores)
     .post(colaboradorController.createColaborador);
 
 route
