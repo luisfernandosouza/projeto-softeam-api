@@ -1,7 +1,9 @@
 const empresaController = require('./../controllers/empresaController.js');
+const authController = require('./../controllers/authController');
 const express = require('express');
 const route = express.Router();
 
+route.use(authController.protectRoutes);
 
 route
     .route('/')

@@ -33,10 +33,8 @@ exports.createColaborador = catchAsync(async (req, res, next) => {
 });
 
 exports.updateColaborador = catchAsync(async (req, res, next) => {
-    // const colaborador = await Colaborador.findByIdAndUpdate(req.params.id, req.body, {new:true, runValidators:true})
 
     const colaborador = await Colaborador.findByIdAndUpdate(req.params.id, req.body, {new:true, runValidators:true});
-
 
     res.status(200).json({
         message: 'success',
@@ -50,7 +48,7 @@ exports.deleteColaborador = catchAsync(async (req, res, next) => {
     const colaborador = await Colaborador.findByIdAndDelete(req.params.id);
     res.status(200).json({
         message: 'success',
-        data:{
+        data: {
             colaborador
         }
     });

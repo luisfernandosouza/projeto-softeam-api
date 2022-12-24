@@ -13,7 +13,8 @@ const empresaSchema = Schema({
     },
     CNPJ: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     telefone: {
         type: String,

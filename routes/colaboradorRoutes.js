@@ -23,7 +23,7 @@ route
 route
     .route('/:id')
     .get(colaboradorController.getColaborador)
-    .patch(authController.protectUpdate, colaboradorController.updateColaborador)
+    .patch(authController.protectUpdateColaborador, colaboradorController.updateColaborador)
     .delete(colaboradorController.deleteColaborador);
     
 module.exports = route

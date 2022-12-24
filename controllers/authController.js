@@ -51,7 +51,7 @@ exports.login = catchAsync( async (req, res, next) => {
     })
 });
 
-exports.protectUpdate = (req, res, next) => {
+exports.protectUpdateColaborador = (req, res, next) => {
     if (req.body.senha) {
         return next(new AppError('Esta rota não serve para atualizar senha', 401))
     }
@@ -73,8 +73,8 @@ exports.protectRoutes = catchAsync (async (req, res, next) => {
     const colaborador = await Colaborador.findById(decoded.id)
 
     if (!colaborador) {
-        return next('O usuario dono deste token nao existe');
+        return next('O usuario deste token nao existe');
     }
-    req.
+
     next()
 })

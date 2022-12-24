@@ -7,7 +7,7 @@ const projetoSchema = new Schema({
         lowercase: true,
         required: true
     },
-    decricrao: {
+    descricrao: {
         type: String,
         required: true
     },
@@ -23,9 +23,11 @@ const projetoSchema = new Schema({
     },
     colaboradores: {
         type: [{type: Schema.Types.ObjectId, ref: 'Colaborador'}],
+        default: []
     },
     empresas: {
-        type: [{type: Schema.Types.ObjectId, ref: 'Empresa'}]
+        type: [{type: Schema.Types.ObjectId, ref: 'Empresa'}],
+        default: []
     }
 });
 
