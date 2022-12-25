@@ -12,8 +12,12 @@ route
     .route('/login')
     .post(authController.login);
 
+route.use(authController.protectRoutes);
+
+
 route
-    .use(authController.protectRoutes);
+    .route('/changesenha')
+    .patch(authController.changeSenha);
 
 route
     .route('/')
@@ -23,7 +27,7 @@ route
 route
     .route('/:id')
     .get(colaboradorController.getColaborador)
-    .patch(authController.protectUpdateColaborador, colaboradorController.updateColaborador)
+    .patch(colaboradorController.protectUpdateColaborador, colaboradorController.updateColaborador)
     .delete(colaboradorController.deleteColaborador);
     
 module.exports = route

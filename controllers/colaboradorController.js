@@ -32,6 +32,14 @@ exports.createColaborador = catchAsync(async (req, res, next) => {
     });
 });
 
+exports.protectUpdateColaborador = (req, res, next) => {
+    if (req.body.senha) {
+        return next(new AppError('Esta rota não serve para atualizar senha', 401))
+    }
+
+    next()
+}
+
 exports.updateColaborador = catchAsync(async (req, res, next) => {
 
     const colaborador = await Colaborador.findByIdAndUpdate(req.params.id, req.body, {new:true, runValidators:true});

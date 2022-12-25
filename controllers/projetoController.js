@@ -37,7 +37,7 @@ exports.createProjeto = catchAsync(async (req, res, next) => {
 
 exports.updateProjeto = catchAsync(async (req, res, next) => {
 
-    const projeto = await Projeto.ByIdAndUpdate(req.params.id, req.body, {new:true, runValidators:true});
+    const projeto = await Projeto.findByIdAndUpdate(req.params.id, req.body, {new:true, runValidators:true});
 
     res.status(200).json({
         message: 'success',

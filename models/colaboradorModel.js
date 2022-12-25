@@ -37,6 +37,8 @@ colaboradorSchema.methods.senhaCorreta = async function(senhaTeste, senhaOrigina
     return await bcrypt.compare(senhaTeste, senhaOriginal);
 }
 
+
+
 const Colaborador = model('Colaborador', colaboradorSchema);
 
 module.exports = Colaborador;

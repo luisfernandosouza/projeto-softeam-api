@@ -51,16 +51,11 @@ exports.login = catchAsync( async (req, res, next) => {
     })
 });
 
-exports.protectUpdateColaborador = (req, res, next) => {
-    if (req.body.senha) {
-        return next(new AppError('Esta rota não serve para atualizar senha', 401))
-    }
 
-    next()
-}
 
 exports.protectRoutes = catchAsync (async (req, res, next) => {
     let token;
+
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
         token = req.headers.authorization.split(' ')[1];
     }
@@ -76,5 +71,21 @@ exports.protectRoutes = catchAsync (async (req, res, next) => {
         return next('O usuario deste token nao existe');
     }
 
+    req.colaborador = colaborador
     next()
-})
+});
+
+exports.changeSenha = (req, res, next) => {
+    const senha = req.body.senha;
+    const colaborador = req.colaborador;
+    colaborador.senha = senha;
+    colaborador.save()
+
+    res.status(200).json({
+        status:'success',
+        data: {
+            nome: colaborador.nome,
+            email: colaborador.email,
+        }
+    })
+}
